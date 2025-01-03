@@ -6,7 +6,7 @@ from mysql.connector import Error
 import os
 import mysql.connector
 
-#cnx = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=False)
+#cnx = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True)
 
 # conn_str = os.getenv('MYSQLCONNSTR_genai')
 # conn = mysql.connector.connect(conn_str)
@@ -97,12 +97,7 @@ if action == "Give prompt to EXISTING Data":
             with st.spinner("Processing..."):
                 try:
                     # Connect to the database
-                    connection = pymysql.connect(
-                        host="localhost",  # Replace with your host
-                        user="root",  # Replace with your MySQL username
-                        password="password",  # Replace with your MySQL password
-                        database="raju_genai"  # Replace with your database name
-                    )
+                    connection = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True)
                     cursor = connection.cursor()
  
                     # Fetch the schema of the 'utilisation' table
@@ -251,12 +246,7 @@ elif action == "CHANGE the Existing Data with NEW EXCEL FILE":
                     df = df.fillna("NULL")
  
                     # Connect to the database
-                    connection = pymysql.connect(
-                        host="localhost",  # Replace with your host
-                        user="root",  # Replace with your MySQL username
-                        password="password",  # Replace with your MySQL password
-                        database="raju_genai"  # Replace with your database name
-                    )
+                    connection = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True)
                     cursor = connection.cursor()
  
                     # Replace the 'utilisation' table
