@@ -6,8 +6,10 @@ from mysql.connector import Error
 import os
 import mysql.connector
 
-conn_str = os.getenv('MYSQLCONNSTR_genai')
-conn = mysql.connector.connect(conn_str)
+cnx = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=False)
+
+# conn_str = os.getenv('MYSQLCONNSTR_genai')
+# conn = mysql.connector.connect(conn_str)
 
  
 st.title("Insights Generator")
