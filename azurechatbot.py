@@ -3,6 +3,12 @@ import streamlit as st
 import pandas as pd
 import pymysql
 from mysql.connector import Error
+import os
+import mysql.connector
+
+conn_str = os.getenv('MYSQLCONNSTR_genai')
+conn = mysql.connector.connect(conn_str)
+
  
 st.title("Insights Generator")
  
