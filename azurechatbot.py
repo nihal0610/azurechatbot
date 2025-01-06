@@ -77,12 +77,7 @@ if uploaded_file is not None:
             df = df.fillna("NULL")
  
             # Connect to the database
-            connection = pymysql.connect(
-                host="localhost",  # Replace with your host
-                user="root",  # Replace with your MySQL username
-                password="password",  # Replace with your MySQL password
-                database="raju_genai"  # Replace with your database name
-            )
+            connection = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True)
             cursor = connection.cursor()
  
             # Replace the 'utilisation' table
