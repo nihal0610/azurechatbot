@@ -68,8 +68,8 @@ uploaded_file = st.file_uploader("Upload your Excel file to update the database:
 
 if uploaded_file is not None:
     with st.spinner("Processing..."):
-        cursor = None
-        connection = None
+        cursor = None  # Declare cursor outside the try block
+        connection = None  # Declare connection outside the try block
         try:
             # Load the uploaded Excel file
             df = pd.read_excel(uploaded_file)
@@ -138,7 +138,7 @@ if uploaded_file is not None:
         except Error as e:
             st.error(f"Error: {e}")
         finally:
-            # Ensure cursor and connection are closed only if they were created
+            # Ensure cursor and connection are closed only if they were initialized
             if cursor is not None:
                 cursor.close()
             if connection is not None:
