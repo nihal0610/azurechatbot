@@ -68,6 +68,8 @@ uploaded_file = st.file_uploader("Upload your Excel file to update the database:
 
 if uploaded_file is not None:
     with st.spinner("Processing..."):
+        cursor = None
+        connection = None
         try:
             # Load the uploaded Excel file
             df = pd.read_excel(uploaded_file)
@@ -75,7 +77,10 @@ if uploaded_file is not None:
             df = df.fillna("NULL")
 
             # Connect to the database
-            connection = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True)
+            connection = mysql.connector.connect(
+                user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", 
+                port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True
+            )
             cursor = connection.cursor()
 
             # Replace the 'utilisation' table
@@ -133,10 +138,10 @@ if uploaded_file is not None:
         except Error as e:
             st.error(f"Error: {e}")
         finally:
-            # Ensure cursor and connection are closed only if they are open
-            if cursor:
+            # Ensure cursor and connection are closed only if they were created
+            if cursor is not None:
                 cursor.close()
-            if connection:
+            if connection is not None:
                 connection.close()
 else:
     st.warning("Please upload an Excel file to proceed.")
