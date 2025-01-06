@@ -135,9 +135,9 @@ if uploaded_file is not None:
         except Error as e:
             st.error(f"Error: {e}")
         finally:
-            cursor.close()
-            connection.close()
+            if cursor:
+                cursor.close()
+            if connection:
+                connection.close()
 else:
     st.warning("Please upload an Excel file to proceed.")
- 
- 
