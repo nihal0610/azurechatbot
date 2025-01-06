@@ -3,14 +3,6 @@ import streamlit as st
 import pandas as pd
 import pymysql
 from mysql.connector import Error
-import os
-import mysql.connector
-
-#cnx = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True)
-
-# conn_str = os.getenv('MYSQLCONNSTR_genai')
-# conn = mysql.connector.connect(conn_str)
-
  
 st.title("Insights Generator")
  
@@ -156,7 +148,7 @@ elif action == "Compare your NEW EXCEL FILE with Existing File":
             with st.spinner("Processing..."):
                 try:
                     # Connect to the database
-                    connection = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=False)
+                    connection = mysql.connector.connect(user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True)
                     cursor = connection.cursor()
  
                     # Step 1: Drop the 'utilisation2' table if it exists
