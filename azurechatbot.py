@@ -74,9 +74,6 @@ if uploaded_file is not None:
             # Load the uploaded Excel file
             df = pd.read_excel(uploaded_file)
             date_cols = ['ProjectEnddate', 'ProjectStartdate', 'Allocation Start Date', 'Allocation End Date']
-            for date_column in date_cols:
-                if date_column in df.columns:
-                    df[date_column] = pd.to_datetime(df[date_column], errors='coerce')
             df.columns = [col.strip().replace(" ", "").replace("/", "").replace("-", "") for col in df.columns]
             df = df.fillna("NULL")
 
