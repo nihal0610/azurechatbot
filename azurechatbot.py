@@ -79,7 +79,7 @@ if uploaded_file is not None:
             # Connect to the database
             connection = mysql.connector.connect(
                 user="nihal", password="Chotu0610", host="genaicogni.mysql.database.azure.com", 
-                port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True , require_secure_transport=off
+                port=3306, database="genai", ssl_ca="{ca-cert filename}", ssl_disabled=True
             )
             cursor = connection.cursor()
 
