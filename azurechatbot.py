@@ -116,6 +116,7 @@ if uploaded_file is not None:
 
                             # Generate SQL query using the schema
                             sql_query = generate_sql_query(user_prompt, column_names)
+                            st.write(sql_query)
                             st.subheader("Generated SQL Query:")
                             st.code(sql_query, language="sql")
 
